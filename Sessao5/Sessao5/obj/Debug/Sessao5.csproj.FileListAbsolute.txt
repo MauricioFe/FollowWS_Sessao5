@@ -1,0 +1,16 @@
+C:\Users\mauri\Desktop\Treinamento\ProvasAprovadas\Sessao5\Entregas\FollowWS_Sessao5\Sessao5\Sessao5\bin\Debug\Sessao5.exe.config
+C:\Users\mauri\Desktop\Treinamento\ProvasAprovadas\Sessao5\Entregas\FollowWS_Sessao5\Sessao5\Sessao5\bin\Debug\Sessao5.exe
+C:\Users\mauri\Desktop\Treinamento\ProvasAprovadas\Sessao5\Entregas\FollowWS_Sessao5\Sessao5\Sessao5\bin\Debug\Sessao5.pdb
+C:\Users\mauri\Desktop\Treinamento\ProvasAprovadas\Sessao5\Entregas\FollowWS_Sessao5\Sessao5\Sessao5\obj\Debug\Sessao5.csprojAssemblyReference.cache
+C:\Users\mauri\Desktop\Treinamento\ProvasAprovadas\Sessao5\Entregas\FollowWS_Sessao5\Sessao5\Sessao5\obj\Debug\Sessao5.FrmLogin.resources
+C:\Users\mauri\Desktop\Treinamento\ProvasAprovadas\Sessao5\Entregas\FollowWS_Sessao5\Sessao5\Sessao5\obj\Debug\Sessao5.FrmTelaSplash.resources
+C:\Users\mauri\Desktop\Treinamento\ProvasAprovadas\Sessao5\Entregas\FollowWS_Sessao5\Sessao5\Sessao5\obj\Debug\Sessao5.Properties.Resources.resources
+C:\Users\mauri\Desktop\Treinamento\ProvasAprovadas\Sessao5\Entregas\FollowWS_Sessao5\Sessao5\Sessao5\obj\Debug\Sessao5.csproj.GenerateResource.cache
+C:\Users\mauri\Desktop\Treinamento\ProvasAprovadas\Sessao5\Entregas\FollowWS_Sessao5\Sessao5\Sessao5\obj\Debug\Sessao5.csproj.CoreCompileInputs.cache
+C:\Users\mauri\Desktop\Treinamento\ProvasAprovadas\Sessao5\Entregas\FollowWS_Sessao5\Sessao5\Sessao5\obj\Debug\Sessao5.exe
+C:\Users\mauri\Desktop\Treinamento\ProvasAprovadas\Sessao5\Entregas\FollowWS_Sessao5\Sessao5\Sessao5\obj\Debug\Sessao5.pdb
+C:\Users\mauri\Desktop\Treinamento\ProvasAprovadas\Sessao5\Entregas\FollowWS_Sessao5\Sessao5\Sessao5\bin\Debug\Interop.WMPLib.dll
+C:\Users\mauri\Desktop\Treinamento\ProvasAprovadas\Sessao5\Entregas\FollowWS_Sessao5\Sessao5\Sessao5\bin\Debug\AxInterop.WMPLib.dll
+C:\Users\mauri\Desktop\Treinamento\ProvasAprovadas\Sessao5\Entregas\FollowWS_Sessao5\Sessao5\Sessao5\obj\Debug\Interop.WMPLib.dll
+C:\Users\mauri\Desktop\Treinamento\ProvasAprovadas\Sessao5\Entregas\FollowWS_Sessao5\Sessao5\Sessao5\obj\Debug\AxInterop.WMPLib.dll
+C:\Users\mauri\Desktop\Treinamento\ProvasAprovadas\Sessao5\Entregas\FollowWS_Sessao5\Sessao5\Sessao5\obj\Debug\Sessao5.csproj.ResolveComReference.cache
