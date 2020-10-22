@@ -144,6 +144,14 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Video.xml" />
+    <None Include="Resources\video1.mp4" />
+    <None Include="Resources\video2.mp4" />
+    <None Include="Resources\video3.mp4" />
+    <None Include="Resources\default.wav" />
+    <None Include="Resources\som1.wav" />
+    <None Include="Resources\som2.wav" />
+    <None Include="Resources\som3.wav" />
     <Content Include="Sessao05.mdf" />
     <Content Include="Sessao05_log.ldf">
       <DependentUpon>Sessao05.mdf</DependentUpon>

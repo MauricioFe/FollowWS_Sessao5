@@ -35,18 +35,19 @@
             // 
             // player
             // 
+            this.player.Dock = System.Windows.Forms.DockStyle.Fill;
             this.player.Enabled = true;
-            this.player.Location = new System.Drawing.Point(12, 33);
+            this.player.Location = new System.Drawing.Point(0, 0);
             this.player.Name = "player";
             this.player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("player.OcxState")));
-            this.player.Size = new System.Drawing.Size(789, 413);
+            this.player.Size = new System.Drawing.Size(806, 452);
             this.player.TabIndex = 0;
             this.player.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.player_PlayStateChange);
             // 
             // FrmTelaSplash
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.ClientSize = new System.Drawing.Size(813, 477);
+            this.ClientSize = new System.Drawing.Size(806, 452);
             this.Controls.Add(this.player);
             this.Font = new System.Drawing.Font("Helvetica-Normal", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
