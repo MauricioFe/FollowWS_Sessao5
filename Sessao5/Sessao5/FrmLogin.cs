@@ -18,5 +18,12 @@ namespace Sessao5
         {
             InitializeComponent();
         }
+
+        private void llbEsqueceuSenha_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmRecuperarSenha form = new FrmRecuperarSenha();
+            form.Show();
+            this.Dispose();
+        }
     }
 }
