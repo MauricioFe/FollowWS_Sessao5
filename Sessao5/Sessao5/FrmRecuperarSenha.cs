@@ -1,4 +1,5 @@
 ﻿using Sessao5.models;
+using Sessao5.Sessao05DataSetTableAdapters;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,9 +15,11 @@ namespace Sessao5
 {
     public partial class FrmRecuperarSenha : Form
     {
-        public FrmRecuperarSenha()
+        string email;
+        public FrmRecuperarSenha(string email)
         {
             InitializeComponent();
+            this.email = email;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -34,19 +37,63 @@ namespace Sessao5
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            if (txtSenha.Text == txtConfirmacao.Text)
-            {
-                //alterar senha
-            }
-            else
-            {
-                MessageBox.Show("as senha precisam ser iguais");
-            }
+
         }
 
         private void txtSenha_Leave(object sender, EventArgs e)
         {
-            Regex regex = new Regex("");
+            Regex regex = new Regex("^[a-z0-9]{8,15}$");
+            if (regex.IsMatch(txtSenha.Text) && txtSenha.Text == txtConfirmacao.Text)
+            {
+                btnEntrar.Enabled = true;
+            }
+            else
+            {
+                btnEntrar.Enabled = false;
+                MessageBox.Show("Senha inválida");
+            }
+        }
+
+        private void cboTimeFavorito_Leave(object sender, EventArgs e)
+        {
+            ValidadandoNascimentoTime();
+        }
+
+        private void ValidadandoNascimentoTime()
+        {
+            UsuariosTableAdapter usuarios = new UsuariosTableAdapter();
+            int cont = usuarios.FillByNascimentoAndTime(sessao05DataSet.Usuarios, email, dtpDataNascimento.Value.Date.ToString("yyyy-MM-dd"),
+                Convert.ToInt32(cboTimeFavorito.SelectedValue));
+
+            if (cont > 0)
+            {
+                txtConfirmacao.Enabled = true;
+                txtSenha.Enabled = true;
+            }
+            else
+            {
+                txtConfirmacao.Enabled = false;
+                txtSenha.Enabled = false;
+            }
+        }
+
+        private void cboTimeFavorito_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            ValidadandoNascimentoTime();
+        }
+
+        private void txtConfirmacao_Leave(object sender, EventArgs e)
+        {
+            Regex regex = new Regex("^[a-z0-9]{8,15}$");
+            if (regex.IsMatch(txtSenha.Text) && txtSenha.Text == txtConfirmacao.Text)
+            {
+                btnEntrar.Enabled = true;
+            }
+            else
+            {
+                btnEntrar.Enabled = false;
+                MessageBox.Show("Senha inválida");
+            }
         }
     }
 }

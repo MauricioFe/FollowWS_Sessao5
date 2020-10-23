@@ -8281,7 +8281,7 @@ SELECT Id, Nome, Email, Senha, Nascimento, Foto, Sexo, TimeFavoritoId, perfil FR
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Id, Nome, Email, Senha, Nascimento, Foto, Sexo, TimeFavoritoId, perfil FRO" +
@@ -8290,9 +8290,18 @@ SELECT Id, Nome, Email, Senha, Nascimento, Foto, Sexo, TimeFavoritoId, perfil FR
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = "SELECT        Id, Nome, Email, Senha, Nascimento, Foto, Sexo, TimeFavoritoId, per" +
-                "fil\r\nFROM            Usuarios\r\nWHERE        (Email = @Email)";
+                "fil\r\nFROM            Usuarios\r\nWHERE        (Email = @Email) AND (Nascimento = @" +
+                "nascimento) AND (TimeFavoritoId = @time)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@nascimento", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 0, 0, "Nascimento", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@time", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "TimeFavoritoId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "SELECT        Id, Nome, Email, Senha, Nascimento, Foto, Sexo, TimeFavoritoId, per" +
+                "fil\r\nFROM            Usuarios\r\nWHERE        (Email = @Email)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8323,8 +8332,39 @@ SELECT Id, Nome, Email, Senha, Nascimento, Foto, Sexo, TimeFavoritoId, perfil FR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillEmailExiste(Sessao05DataSet.UsuariosDataTable dataTable, string Email) {
+        public virtual int FillByNascimentoAndTime(Sessao05DataSet.UsuariosDataTable dataTable, string Email, string nascimento, global::System.Nullable<int> time) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Email == null)) {
+                throw new global::System.ArgumentNullException("Email");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Email));
+            }
+            if ((nascimento == null)) {
+                throw new global::System.ArgumentNullException("nascimento");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((string)(nascimento));
+            }
+            if ((time.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((int)(time.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillEmailExiste(Sessao05DataSet.UsuariosDataTable dataTable, string Email) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((Email == null)) {
                 throw new global::System.ArgumentNullException("Email");
             }
@@ -8343,7 +8383,7 @@ SELECT Id, Nome, Email, Senha, Nascimento, Foto, Sexo, TimeFavoritoId, perfil FR
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual Sessao05DataSet.UsuariosDataTable GetEmailExiste(string Email) {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((Email == null)) {
                 throw new global::System.ArgumentNullException("Email");
             }

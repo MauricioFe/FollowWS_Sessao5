@@ -104,6 +104,8 @@
             this.cboTimeFavorito.Size = new System.Drawing.Size(242, 30);
             this.cboTimeFavorito.TabIndex = 5;
             this.cboTimeFavorito.ValueMember = "Id";
+            this.cboTimeFavorito.SelectionChangeCommitted += new System.EventHandler(this.cboTimeFavorito_SelectionChangeCommitted);
+            this.cboTimeFavorito.Leave += new System.EventHandler(this.cboTimeFavorito_Leave);
             // 
             // selecoesBindingSource
             // 
@@ -122,6 +124,7 @@
             // 
             // txtSenha
             // 
+            this.txtSenha.Enabled = false;
             this.txtSenha.Location = new System.Drawing.Point(312, 153);
             this.txtSenha.MaxLength = 15;
             this.txtSenha.Name = "txtSenha";
@@ -132,12 +135,14 @@
             // 
             // txtConfirmacao
             // 
+            this.txtConfirmacao.Enabled = false;
             this.txtConfirmacao.Location = new System.Drawing.Point(312, 188);
             this.txtConfirmacao.MaxLength = 15;
             this.txtConfirmacao.Name = "txtConfirmacao";
             this.txtConfirmacao.Size = new System.Drawing.Size(242, 30);
             this.txtConfirmacao.TabIndex = 7;
             this.txtConfirmacao.UseSystemPasswordChar = true;
+            this.txtConfirmacao.Leave += new System.EventHandler(this.txtConfirmacao_Leave);
             // 
             // lblForcaSenha
             // 

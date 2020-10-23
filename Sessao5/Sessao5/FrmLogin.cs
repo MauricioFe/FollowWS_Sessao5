@@ -28,7 +28,7 @@ namespace Sessao5
             int emailValido = usuarioAdapter.FillEmailExiste(sessao05DataSet1.Usuarios, txtEmail.Text);
             if (txtEmail.Text != "" && emailValido > 0)
             {
-                FrmRecuperarSenha form = new FrmRecuperarSenha();
+                FrmRecuperarSenha form = new FrmRecuperarSenha(txtEmail.Text);
                 form.Show();
                 this.Dispose();
             }
@@ -42,6 +42,11 @@ namespace Sessao5
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnEntrar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
