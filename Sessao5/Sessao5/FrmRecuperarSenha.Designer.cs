@@ -123,14 +123,17 @@
             // txtSenha
             // 
             this.txtSenha.Location = new System.Drawing.Point(312, 153);
+            this.txtSenha.MaxLength = 15;
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(242, 30);
             this.txtSenha.TabIndex = 6;
             this.txtSenha.UseSystemPasswordChar = true;
+            this.txtSenha.Leave += new System.EventHandler(this.txtSenha_Leave);
             // 
             // txtConfirmacao
             // 
             this.txtConfirmacao.Location = new System.Drawing.Point(312, 188);
+            this.txtConfirmacao.MaxLength = 15;
             this.txtConfirmacao.Name = "txtConfirmacao";
             this.txtConfirmacao.Size = new System.Drawing.Size(242, 30);
             this.txtConfirmacao.TabIndex = 7;
@@ -159,6 +162,7 @@
             // btnEntrar
             // 
             this.btnEntrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(166)))), ((int)(((byte)(90)))));
+            this.btnEntrar.Enabled = false;
             this.btnEntrar.FlatAppearance.BorderSize = 0;
             this.btnEntrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEntrar.ForeColor = System.Drawing.Color.Gainsboro;
