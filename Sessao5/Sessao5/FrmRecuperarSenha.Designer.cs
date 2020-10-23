@@ -28,18 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dtpDataNascimento = new System.Windows.Forms.DateTimePicker();
             this.cboTimeFavorito = new System.Windows.Forms.ComboBox();
+            this.selecoesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sessao05DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sessao05DataSet = new Sessao5.Sessao05DataSet();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.txtConfirmacao = new System.Windows.Forms.TextBox();
             this.lblForcaSenha = new System.Windows.Forms.Label();
             this.lblSenhasIdenticas = new System.Windows.Forms.Label();
             this.btnEntrar = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.selecoesTableAdapter = new Sessao5.Sessao05DataSetTableAdapters.SelecoesTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.selecoesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sessao05DataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sessao05DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -88,11 +96,29 @@
             // 
             // cboTimeFavorito
             // 
+            this.cboTimeFavorito.DataSource = this.selecoesBindingSource;
+            this.cboTimeFavorito.DisplayMember = "Nome";
             this.cboTimeFavorito.FormattingEnabled = true;
             this.cboTimeFavorito.Location = new System.Drawing.Point(312, 117);
             this.cboTimeFavorito.Name = "cboTimeFavorito";
             this.cboTimeFavorito.Size = new System.Drawing.Size(242, 30);
             this.cboTimeFavorito.TabIndex = 5;
+            this.cboTimeFavorito.ValueMember = "Id";
+            // 
+            // selecoesBindingSource
+            // 
+            this.selecoesBindingSource.DataMember = "Selecoes";
+            this.selecoesBindingSource.DataSource = this.sessao05DataSetBindingSource;
+            // 
+            // sessao05DataSetBindingSource
+            // 
+            this.sessao05DataSetBindingSource.DataSource = this.sessao05DataSet;
+            this.sessao05DataSetBindingSource.Position = 0;
+            // 
+            // sessao05DataSet
+            // 
+            this.sessao05DataSet.DataSetName = "Sessao05DataSet";
+            this.sessao05DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtSenha
             // 
@@ -142,6 +168,7 @@
             this.btnEntrar.TabIndex = 10;
             this.btnEntrar.Text = "Alterar senha";
             this.btnEntrar.UseVisualStyleBackColor = false;
+            this.btnEntrar.Click += new System.EventHandler(this.btnEntrar_Click);
             // 
             // linkLabel1
             // 
@@ -153,6 +180,10 @@
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "voltar";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // selecoesTableAdapter
+            // 
+            this.selecoesTableAdapter.ClearBeforeFill = true;
             // 
             // FrmRecuperarSenha
             // 
@@ -175,6 +206,10 @@
             this.Name = "FrmRecuperarSenha";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recuperar Senha";
+            this.Load += new System.EventHandler(this.FrmRecuperarSenha_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.selecoesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sessao05DataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sessao05DataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,5 +229,9 @@
         private System.Windows.Forms.Label lblSenhasIdenticas;
         private System.Windows.Forms.Button btnEntrar;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.BindingSource sessao05DataSetBindingSource;
+        private Sessao05DataSet sessao05DataSet;
+        private System.Windows.Forms.BindingSource selecoesBindingSource;
+        private Sessao05DataSetTableAdapters.SelecoesTableAdapter selecoesTableAdapter;
     }
 }

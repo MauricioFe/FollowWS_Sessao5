@@ -39,7 +39,9 @@
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.sessao05DataSet1 = new Sessao5.Sessao05DataSet();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sessao05DataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -140,6 +142,7 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "Sair";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
             // 
@@ -150,6 +153,11 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // sessao05DataSet1
+            // 
+            this.sessao05DataSet1.DataSetName = "Sessao05DataSet";
+            this.sessao05DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // FrmLogin
             // 
@@ -172,6 +180,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sessao05DataSet1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,6 +199,7 @@
         private System.Windows.Forms.LinkLabel llbEsqueceuSenha;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.Button button1;
+        private Sessao05DataSet sessao05DataSet1;
     }
 }
 

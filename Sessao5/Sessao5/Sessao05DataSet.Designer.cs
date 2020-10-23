@@ -42,6 +42,28 @@ namespace Sessao5 {
         
         private UsuariosDataTable tableUsuarios;
         
+        private global::System.Data.DataRelation relationFK_JOGO_COMENTARIO;
+        
+        private global::System.Data.DataRelation relationFK_USUARIO_COMENTARIO;
+        
+        private global::System.Data.DataRelation relationFK_POSICOES_JOGADORES;
+        
+        private global::System.Data.DataRelation relationFK_SELECOES_JOGADORES;
+        
+        private global::System.Data.DataRelation relationFK_RODADA_JOGOS;
+        
+        private global::System.Data.DataRelation relationFK_SELECAO_JOGOS;
+        
+        private global::System.Data.DataRelation relationFK_SELECAO_VISITANTE_JOGOS;
+        
+        private global::System.Data.DataRelation relationFK_NOTIFICACOES_SELECOES;
+        
+        private global::System.Data.DataRelation relationFK_NOTIFICACAO_NOTIFICACOES_USUARIOS;
+        
+        private global::System.Data.DataRelation relationFK_USUARIOS_NOTIFICACOES_USUARIOS;
+        
+        private global::System.Data.DataRelation relationFK_SELECOES_USUARIO;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -386,6 +408,17 @@ namespace Sessao5 {
                     this.tableUsuarios.InitVars();
                 }
             }
+            this.relationFK_JOGO_COMENTARIO = this.Relations["FK_JOGO_COMENTARIO"];
+            this.relationFK_USUARIO_COMENTARIO = this.Relations["FK_USUARIO_COMENTARIO"];
+            this.relationFK_POSICOES_JOGADORES = this.Relations["FK_POSICOES_JOGADORES"];
+            this.relationFK_SELECOES_JOGADORES = this.Relations["FK_SELECOES_JOGADORES"];
+            this.relationFK_RODADA_JOGOS = this.Relations["FK_RODADA_JOGOS"];
+            this.relationFK_SELECAO_JOGOS = this.Relations["FK_SELECAO_JOGOS"];
+            this.relationFK_SELECAO_VISITANTE_JOGOS = this.Relations["FK_SELECAO_VISITANTE_JOGOS"];
+            this.relationFK_NOTIFICACOES_SELECOES = this.Relations["FK_NOTIFICACOES_SELECOES"];
+            this.relationFK_NOTIFICACAO_NOTIFICACOES_USUARIOS = this.Relations["FK_NOTIFICACAO_NOTIFICACOES_USUARIOS"];
+            this.relationFK_USUARIOS_NOTIFICACOES_USUARIOS = this.Relations["FK_USUARIOS_NOTIFICACOES_USUARIOS"];
+            this.relationFK_SELECOES_USUARIO = this.Relations["FK_SELECOES_USUARIO"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -414,6 +447,50 @@ namespace Sessao5 {
             base.Tables.Add(this.tableSelecoes);
             this.tableUsuarios = new UsuariosDataTable();
             base.Tables.Add(this.tableUsuarios);
+            this.relationFK_JOGO_COMENTARIO = new global::System.Data.DataRelation("FK_JOGO_COMENTARIO", new global::System.Data.DataColumn[] {
+                        this.tableJogos.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableComentario.IdJogoColumn}, false);
+            this.Relations.Add(this.relationFK_JOGO_COMENTARIO);
+            this.relationFK_USUARIO_COMENTARIO = new global::System.Data.DataRelation("FK_USUARIO_COMENTARIO", new global::System.Data.DataColumn[] {
+                        this.tableUsuarios.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableComentario.IdUsuarioColumn}, false);
+            this.Relations.Add(this.relationFK_USUARIO_COMENTARIO);
+            this.relationFK_POSICOES_JOGADORES = new global::System.Data.DataRelation("FK_POSICOES_JOGADORES", new global::System.Data.DataColumn[] {
+                        this.tablePosicoes.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableJogadores.PosicaoIdColumn}, false);
+            this.Relations.Add(this.relationFK_POSICOES_JOGADORES);
+            this.relationFK_SELECOES_JOGADORES = new global::System.Data.DataRelation("FK_SELECOES_JOGADORES", new global::System.Data.DataColumn[] {
+                        this.tableSelecoes.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableJogadores.SelecaoIdColumn}, false);
+            this.Relations.Add(this.relationFK_SELECOES_JOGADORES);
+            this.relationFK_RODADA_JOGOS = new global::System.Data.DataRelation("FK_RODADA_JOGOS", new global::System.Data.DataColumn[] {
+                        this.tableRodadas.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableJogos.RodadaIdColumn}, false);
+            this.Relations.Add(this.relationFK_RODADA_JOGOS);
+            this.relationFK_SELECAO_JOGOS = new global::System.Data.DataRelation("FK_SELECAO_JOGOS", new global::System.Data.DataColumn[] {
+                        this.tableSelecoes.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableJogos.SelecaoCasaIdColumn}, false);
+            this.Relations.Add(this.relationFK_SELECAO_JOGOS);
+            this.relationFK_SELECAO_VISITANTE_JOGOS = new global::System.Data.DataRelation("FK_SELECAO_VISITANTE_JOGOS", new global::System.Data.DataColumn[] {
+                        this.tableSelecoes.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableJogos.SelecaoVisitanteIdColumn}, false);
+            this.Relations.Add(this.relationFK_SELECAO_VISITANTE_JOGOS);
+            this.relationFK_NOTIFICACOES_SELECOES = new global::System.Data.DataRelation("FK_NOTIFICACOES_SELECOES", new global::System.Data.DataColumn[] {
+                        this.tableSelecoes.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableNotificacoes.SelecaoIdColumn}, false);
+            this.Relations.Add(this.relationFK_NOTIFICACOES_SELECOES);
+            this.relationFK_NOTIFICACAO_NOTIFICACOES_USUARIOS = new global::System.Data.DataRelation("FK_NOTIFICACAO_NOTIFICACOES_USUARIOS", new global::System.Data.DataColumn[] {
+                        this.tableNotificacoes.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableNotificacoesUsuarios.NotificacaoIdColumn}, false);
+            this.Relations.Add(this.relationFK_NOTIFICACAO_NOTIFICACOES_USUARIOS);
+            this.relationFK_USUARIOS_NOTIFICACOES_USUARIOS = new global::System.Data.DataRelation("FK_USUARIOS_NOTIFICACOES_USUARIOS", new global::System.Data.DataColumn[] {
+                        this.tableUsuarios.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableNotificacoesUsuarios.UsuarioIdColumn}, false);
+            this.Relations.Add(this.relationFK_USUARIOS_NOTIFICACOES_USUARIOS);
+            this.relationFK_SELECOES_USUARIO = new global::System.Data.DataRelation("FK_SELECOES_USUARIO", new global::System.Data.DataColumn[] {
+                        this.tableSelecoes.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableUsuarios.TimeFavoritoIdColumn}, false);
+            this.Relations.Add(this.relationFK_SELECOES_USUARIO);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -679,14 +756,20 @@ namespace Sessao5 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ComentarioRow AddComentarioRow(string Comentario, System.DateTime DataHoraComentario, int IdJogo, int IdUsuario) {
+            public ComentarioRow AddComentarioRow(string Comentario, System.DateTime DataHoraComentario, JogosRow parentJogosRowByFK_JOGO_COMENTARIO, UsuariosRow parentUsuariosRowByFK_USUARIO_COMENTARIO) {
                 ComentarioRow rowComentarioRow = ((ComentarioRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Comentario,
                         DataHoraComentario,
-                        IdJogo,
-                        IdUsuario};
+                        null,
+                        null};
+                if ((parentJogosRowByFK_JOGO_COMENTARIO != null)) {
+                    columnValuesArray[3] = parentJogosRowByFK_JOGO_COMENTARIO[0];
+                }
+                if ((parentUsuariosRowByFK_USUARIO_COMENTARIO != null)) {
+                    columnValuesArray[4] = parentUsuariosRowByFK_USUARIO_COMENTARIO[0];
+                }
                 rowComentarioRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowComentarioRow);
                 return rowComentarioRow;
@@ -998,14 +1081,20 @@ namespace Sessao5 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public JogadoresRow AddJogadoresRow(string Nome, int NumeroCamisa, int SelecaoId, int PosicaoId) {
+            public JogadoresRow AddJogadoresRow(string Nome, int NumeroCamisa, SelecoesRow parentSelecoesRowByFK_SELECOES_JOGADORES, PosicoesRow parentPosicoesRowByFK_POSICOES_JOGADORES) {
                 JogadoresRow rowJogadoresRow = ((JogadoresRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Nome,
                         NumeroCamisa,
-                        SelecaoId,
-                        PosicaoId};
+                        null,
+                        null};
+                if ((parentSelecoesRowByFK_SELECOES_JOGADORES != null)) {
+                    columnValuesArray[3] = parentSelecoesRowByFK_SELECOES_JOGADORES[0];
+                }
+                if ((parentPosicoesRowByFK_POSICOES_JOGADORES != null)) {
+                    columnValuesArray[4] = parentPosicoesRowByFK_POSICOES_JOGADORES[0];
+                }
                 rowJogadoresRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowJogadoresRow);
                 return rowJogadoresRow;
@@ -1339,16 +1428,25 @@ namespace Sessao5 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public JogosRow AddJogosRow(int SelecaoCasaId, int PlacarCasa, int SelecaoVisitanteId, int PlacarVisitante, System.DateTime Data, int RodadaId) {
+            public JogosRow AddJogosRow(SelecoesRow parentSelecoesRowByFK_SELECAO_JOGOS, int PlacarCasa, SelecoesRow parentSelecoesRowByFK_SELECAO_VISITANTE_JOGOS, int PlacarVisitante, System.DateTime Data, RodadasRow parentRodadasRowByFK_RODADA_JOGOS) {
                 JogosRow rowJogosRow = ((JogosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
-                        SelecaoCasaId,
+                        null,
                         PlacarCasa,
-                        SelecaoVisitanteId,
+                        null,
                         PlacarVisitante,
                         Data,
-                        RodadaId};
+                        null};
+                if ((parentSelecoesRowByFK_SELECAO_JOGOS != null)) {
+                    columnValuesArray[1] = parentSelecoesRowByFK_SELECAO_JOGOS[0];
+                }
+                if ((parentSelecoesRowByFK_SELECAO_VISITANTE_JOGOS != null)) {
+                    columnValuesArray[3] = parentSelecoesRowByFK_SELECAO_VISITANTE_JOGOS[0];
+                }
+                if ((parentRodadasRowByFK_RODADA_JOGOS != null)) {
+                    columnValuesArray[6] = parentRodadasRowByFK_RODADA_JOGOS[0];
+                }
                 rowJogosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowJogosRow);
                 return rowJogosRow;
@@ -1685,7 +1783,7 @@ namespace Sessao5 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public NotificacoesRow AddNotificacoesRow(string Titulo, string Descricao, System.DateTime DataHoraCadastro, System.DateTime DataHoraEnvio, string Importancia, int SelecaoId) {
+            public NotificacoesRow AddNotificacoesRow(string Titulo, string Descricao, System.DateTime DataHoraCadastro, System.DateTime DataHoraEnvio, string Importancia, SelecoesRow parentSelecoesRowByFK_NOTIFICACOES_SELECOES) {
                 NotificacoesRow rowNotificacoesRow = ((NotificacoesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1694,7 +1792,10 @@ namespace Sessao5 {
                         DataHoraCadastro,
                         DataHoraEnvio,
                         Importancia,
-                        SelecaoId};
+                        null};
+                if ((parentSelecoesRowByFK_NOTIFICACOES_SELECOES != null)) {
+                    columnValuesArray[6] = parentSelecoesRowByFK_NOTIFICACOES_SELECOES[0];
+                }
                 rowNotificacoesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowNotificacoesRow);
                 return rowNotificacoesRow;
@@ -2008,13 +2109,19 @@ namespace Sessao5 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public NotificacoesUsuariosRow AddNotificacoesUsuariosRow(string Status, int UsuarioId, int NotificacaoId) {
+            public NotificacoesUsuariosRow AddNotificacoesUsuariosRow(string Status, UsuariosRow parentUsuariosRowByFK_USUARIOS_NOTIFICACOES_USUARIOS, NotificacoesRow parentNotificacoesRowByFK_NOTIFICACAO_NOTIFICACOES_USUARIOS) {
                 NotificacoesUsuariosRow rowNotificacoesUsuariosRow = ((NotificacoesUsuariosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Status,
-                        UsuarioId,
-                        NotificacaoId};
+                        null,
+                        null};
+                if ((parentUsuariosRowByFK_USUARIOS_NOTIFICACOES_USUARIOS != null)) {
+                    columnValuesArray[2] = parentUsuariosRowByFK_USUARIOS_NOTIFICACOES_USUARIOS[0];
+                }
+                if ((parentNotificacoesRowByFK_NOTIFICACAO_NOTIFICACOES_USUARIOS != null)) {
+                    columnValuesArray[3] = parentNotificacoesRowByFK_NOTIFICACAO_NOTIFICACOES_USUARIOS[0];
+                }
                 rowNotificacoesUsuariosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowNotificacoesUsuariosRow);
                 return rowNotificacoesUsuariosRow;
@@ -3197,7 +3304,7 @@ namespace Sessao5 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public UsuariosRow AddUsuariosRow(string Nome, string Email, string Senha, System.DateTime Nascimento, byte[] Foto, string Sexo, int TimeFavoritoId, string perfil) {
+            public UsuariosRow AddUsuariosRow(string Nome, string Email, string Senha, System.DateTime Nascimento, byte[] Foto, string Sexo, SelecoesRow parentSelecoesRowByFK_SELECOES_USUARIO, string perfil) {
                 UsuariosRow rowUsuariosRow = ((UsuariosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3207,8 +3314,11 @@ namespace Sessao5 {
                         Nascimento,
                         Foto,
                         Sexo,
-                        TimeFavoritoId,
+                        null,
                         perfil};
+                if ((parentSelecoesRowByFK_SELECOES_USUARIO != null)) {
+                    columnValuesArray[7] = parentSelecoesRowByFK_SELECOES_USUARIO[0];
+                }
                 rowUsuariosRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUsuariosRow);
                 return rowUsuariosRow;
@@ -3505,6 +3615,28 @@ namespace Sessao5 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public JogosRow JogosRow {
+                get {
+                    return ((JogosRow)(this.GetParentRow(this.Table.ParentRelations["FK_JOGO_COMENTARIO"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_JOGO_COMENTARIO"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public UsuariosRow UsuariosRow {
+                get {
+                    return ((UsuariosRow)(this.GetParentRow(this.Table.ParentRelations["FK_USUARIO_COMENTARIO"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_USUARIO_COMENTARIO"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsComentarioNull() {
                 return this.IsNull(this.tableComentario.ComentarioColumn);
             }
@@ -3628,6 +3760,28 @@ namespace Sessao5 {
                 }
                 set {
                     this[this.tableJogadores.PosicaoIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PosicoesRow PosicoesRow {
+                get {
+                    return ((PosicoesRow)(this.GetParentRow(this.Table.ParentRelations["FK_POSICOES_JOGADORES"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_POSICOES_JOGADORES"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public SelecoesRow SelecoesRow {
+                get {
+                    return ((SelecoesRow)(this.GetParentRow(this.Table.ParentRelations["FK_SELECOES_JOGADORES"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_SELECOES_JOGADORES"]);
                 }
             }
             
@@ -3779,6 +3933,39 @@ namespace Sessao5 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public RodadasRow RodadasRow {
+                get {
+                    return ((RodadasRow)(this.GetParentRow(this.Table.ParentRelations["FK_RODADA_JOGOS"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_RODADA_JOGOS"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public SelecoesRow SelecoesRowByFK_SELECAO_JOGOS {
+                get {
+                    return ((SelecoesRow)(this.GetParentRow(this.Table.ParentRelations["FK_SELECAO_JOGOS"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_SELECAO_JOGOS"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public SelecoesRow SelecoesRowByFK_SELECAO_VISITANTE_JOGOS {
+                get {
+                    return ((SelecoesRow)(this.GetParentRow(this.Table.ParentRelations["FK_SELECAO_VISITANTE_JOGOS"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_SELECAO_VISITANTE_JOGOS"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsSelecaoCasaIdNull() {
                 return this.IsNull(this.tableJogos.SelecaoCasaIdColumn);
             }
@@ -3847,6 +4034,17 @@ namespace Sessao5 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetRodadaIdNull() {
                 this[this.tableJogos.RodadaIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ComentarioRow[] GetComentarioRows() {
+                if ((this.Table.ChildRelations["FK_JOGO_COMENTARIO"] == null)) {
+                    return new ComentarioRow[0];
+                }
+                else {
+                    return ((ComentarioRow[])(base.GetChildRows(this.Table.ChildRelations["FK_JOGO_COMENTARIO"])));
+                }
             }
         }
         
@@ -3953,6 +4151,17 @@ namespace Sessao5 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public SelecoesRow SelecoesRow {
+                get {
+                    return ((SelecoesRow)(this.GetParentRow(this.Table.ParentRelations["FK_NOTIFICACOES_SELECOES"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_NOTIFICACOES_SELECOES"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsDataHoraEnvioNull() {
                 return this.IsNull(this.tableNotificacoes.DataHoraEnvioColumn);
             }
@@ -3973,6 +4182,17 @@ namespace Sessao5 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetSelecaoIdNull() {
                 this[this.tableNotificacoes.SelecaoIdColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public NotificacoesUsuariosRow[] GetNotificacoesUsuariosRows() {
+                if ((this.Table.ChildRelations["FK_NOTIFICACAO_NOTIFICACOES_USUARIOS"] == null)) {
+                    return new NotificacoesUsuariosRow[0];
+                }
+                else {
+                    return ((NotificacoesUsuariosRow[])(base.GetChildRows(this.Table.ChildRelations["FK_NOTIFICACAO_NOTIFICACOES_USUARIOS"])));
+                }
             }
         }
         
@@ -4046,6 +4266,28 @@ namespace Sessao5 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public NotificacoesRow NotificacoesRow {
+                get {
+                    return ((NotificacoesRow)(this.GetParentRow(this.Table.ParentRelations["FK_NOTIFICACAO_NOTIFICACOES_USUARIOS"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_NOTIFICACAO_NOTIFICACOES_USUARIOS"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public UsuariosRow UsuariosRow {
+                get {
+                    return ((UsuariosRow)(this.GetParentRow(this.Table.ParentRelations["FK_USUARIOS_NOTIFICACOES_USUARIOS"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_USUARIOS_NOTIFICACOES_USUARIOS"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsUsuarioIdNull() {
                 return this.IsNull(this.tableNotificacoesUsuarios.UsuarioIdColumn);
             }
@@ -4104,6 +4346,17 @@ namespace Sessao5 {
                     this[this.tablePosicoes.NomeColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public JogadoresRow[] GetJogadoresRows() {
+                if ((this.Table.ChildRelations["FK_POSICOES_JOGADORES"] == null)) {
+                    return new JogadoresRow[0];
+                }
+                else {
+                    return ((JogadoresRow[])(base.GetChildRows(this.Table.ChildRelations["FK_POSICOES_JOGADORES"])));
+                }
+            }
         }
         
         /// <summary>
@@ -4141,6 +4394,17 @@ namespace Sessao5 {
                     this[this.tableRodadas.DataInicioColumn] = value;
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public JogosRow[] GetJogosRows() {
+                if ((this.Table.ChildRelations["FK_RODADA_JOGOS"] == null)) {
+                    return new JogosRow[0];
+                }
+                else {
+                    return ((JogosRow[])(base.GetChildRows(this.Table.ChildRelations["FK_RODADA_JOGOS"])));
+                }
+            }
         }
         
         /// <summary>
@@ -4176,6 +4440,61 @@ namespace Sessao5 {
                 }
                 set {
                     this[this.tableSelecoes.NomeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public JogadoresRow[] GetJogadoresRows() {
+                if ((this.Table.ChildRelations["FK_SELECOES_JOGADORES"] == null)) {
+                    return new JogadoresRow[0];
+                }
+                else {
+                    return ((JogadoresRow[])(base.GetChildRows(this.Table.ChildRelations["FK_SELECOES_JOGADORES"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public JogosRow[] GetJogosRowsByFK_SELECAO_JOGOS() {
+                if ((this.Table.ChildRelations["FK_SELECAO_JOGOS"] == null)) {
+                    return new JogosRow[0];
+                }
+                else {
+                    return ((JogosRow[])(base.GetChildRows(this.Table.ChildRelations["FK_SELECAO_JOGOS"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public JogosRow[] GetJogosRowsByFK_SELECAO_VISITANTE_JOGOS() {
+                if ((this.Table.ChildRelations["FK_SELECAO_VISITANTE_JOGOS"] == null)) {
+                    return new JogosRow[0];
+                }
+                else {
+                    return ((JogosRow[])(base.GetChildRows(this.Table.ChildRelations["FK_SELECAO_VISITANTE_JOGOS"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public NotificacoesRow[] GetNotificacoesRows() {
+                if ((this.Table.ChildRelations["FK_NOTIFICACOES_SELECOES"] == null)) {
+                    return new NotificacoesRow[0];
+                }
+                else {
+                    return ((NotificacoesRow[])(base.GetChildRows(this.Table.ChildRelations["FK_NOTIFICACOES_SELECOES"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public UsuariosRow[] GetUsuariosRows() {
+                if ((this.Table.ChildRelations["FK_SELECOES_USUARIO"] == null)) {
+                    return new UsuariosRow[0];
+                }
+                else {
+                    return ((UsuariosRow[])(base.GetChildRows(this.Table.ChildRelations["FK_SELECOES_USUARIO"])));
                 }
             }
         }
@@ -4310,6 +4629,17 @@ namespace Sessao5 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public SelecoesRow SelecoesRow {
+                get {
+                    return ((SelecoesRow)(this.GetParentRow(this.Table.ParentRelations["FK_SELECOES_USUARIO"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_SELECOES_USUARIO"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsFotoNull() {
                 return this.IsNull(this.tableUsuarios.FotoColumn);
             }
@@ -4342,6 +4672,28 @@ namespace Sessao5 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetperfilNull() {
                 this[this.tableUsuarios.perfilColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ComentarioRow[] GetComentarioRows() {
+                if ((this.Table.ChildRelations["FK_USUARIO_COMENTARIO"] == null)) {
+                    return new ComentarioRow[0];
+                }
+                else {
+                    return ((ComentarioRow[])(base.GetChildRows(this.Table.ChildRelations["FK_USUARIO_COMENTARIO"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public NotificacoesUsuariosRow[] GetNotificacoesUsuariosRows() {
+                if ((this.Table.ChildRelations["FK_USUARIOS_NOTIFICACOES_USUARIOS"] == null)) {
+                    return new NotificacoesUsuariosRow[0];
+                }
+                else {
+                    return ((NotificacoesUsuariosRow[])(base.GetChildRows(this.Table.ChildRelations["FK_USUARIOS_NOTIFICACOES_USUARIOS"])));
+                }
             }
         }
         
@@ -7929,12 +8281,18 @@ SELECT Id, Nome, Email, Senha, Nascimento, Foto, Sexo, TimeFavoritoId, perfil FR
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT Id, Nome, Email, Senha, Nascimento, Foto, Sexo, TimeFavoritoId, perfil FRO" +
                 "M dbo.Usuarios";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "SELECT        Id, Nome, Email, Senha, Nascimento, Foto, Sexo, TimeFavoritoId, per" +
+                "fil\r\nFROM            Usuarios\r\nWHERE        (Email = @Email)";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7956,6 +8314,42 @@ SELECT Id, Nome, Email, Senha, Nascimento, Foto, Sexo, TimeFavoritoId, perfil FR
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual Sessao05DataSet.UsuariosDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            Sessao05DataSet.UsuariosDataTable dataTable = new Sessao05DataSet.UsuariosDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillEmailExiste(Sessao05DataSet.UsuariosDataTable dataTable, string Email) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Email == null)) {
+                throw new global::System.ArgumentNullException("Email");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Email));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual Sessao05DataSet.UsuariosDataTable GetEmailExiste(string Email) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((Email == null)) {
+                throw new global::System.ArgumentNullException("Email");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((string)(Email));
+            }
             Sessao05DataSet.UsuariosDataTable dataTable = new Sessao05DataSet.UsuariosDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -8543,21 +8937,21 @@ SELECT Id, Nome, Email, Senha, Nascimento, Foto, Sexo, TimeFavoritoId, perfil FR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateUpdatedRows(Sessao05DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._comentarioTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Comentario.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._rodadasTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Rodadas.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._comentarioTableAdapter.Update(updatedRows));
+                    result = (result + this._rodadasTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._jogadoresTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Jogadores.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._selecoesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Selecoes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._jogadoresTableAdapter.Update(updatedRows));
+                    result = (result + this._selecoesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -8579,15 +8973,6 @@ SELECT Id, Nome, Email, Senha, Nascimento, Foto, Sexo, TimeFavoritoId, perfil FR
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._notificacoesUsuariosTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.NotificacoesUsuarios.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._notificacoesUsuariosTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._posicoesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Posicoes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -8597,30 +8982,39 @@ SELECT Id, Nome, Email, Senha, Nascimento, Foto, Sexo, TimeFavoritoId, perfil FR
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._rodadasTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Rodadas.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._rodadasTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._selecoesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Selecoes.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._selecoesTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._usuariosTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Usuarios.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._usuariosTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._comentarioTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Comentario.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._comentarioTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._jogadoresTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Jogadores.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._jogadoresTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._notificacoesUsuariosTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.NotificacoesUsuarios.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._notificacoesUsuariosTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -8634,19 +9028,19 @@ SELECT Id, Nome, Email, Senha, Nascimento, Foto, Sexo, TimeFavoritoId, perfil FR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateInsertedRows(Sessao05DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._comentarioTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Comentario.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._rodadasTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Rodadas.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._comentarioTableAdapter.Update(addedRows));
+                    result = (result + this._rodadasTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._jogadoresTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Jogadores.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._selecoesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Selecoes.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._jogadoresTableAdapter.Update(addedRows));
+                    result = (result + this._selecoesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -8666,14 +9060,6 @@ SELECT Id, Nome, Email, Senha, Nascimento, Foto, Sexo, TimeFavoritoId, perfil FR
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._notificacoesUsuariosTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.NotificacoesUsuarios.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._notificacoesUsuariosTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._posicoesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Posicoes.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -8682,27 +9068,35 @@ SELECT Id, Nome, Email, Senha, Nascimento, Foto, Sexo, TimeFavoritoId, perfil FR
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._rodadasTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Rodadas.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._rodadasTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._selecoesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Selecoes.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._selecoesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._usuariosTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Usuarios.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._usuariosTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._comentarioTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Comentario.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._comentarioTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._jogadoresTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Jogadores.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._jogadoresTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._notificacoesUsuariosTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.NotificacoesUsuarios.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._notificacoesUsuariosTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -8716,6 +9110,30 @@ SELECT Id, Nome, Email, Senha, Nascimento, Foto, Sexo, TimeFavoritoId, perfil FR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(Sessao05DataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._notificacoesUsuariosTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.NotificacoesUsuarios.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._notificacoesUsuariosTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._jogadoresTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Jogadores.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._jogadoresTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._comentarioTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Comentario.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._comentarioTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._usuariosTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Usuarios.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -8724,35 +9142,11 @@ SELECT Id, Nome, Email, Senha, Nascimento, Foto, Sexo, TimeFavoritoId, perfil FR
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._selecoesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Selecoes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._selecoesTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._rodadasTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Rodadas.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._rodadasTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._posicoesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Posicoes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._posicoesTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._notificacoesUsuariosTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.NotificacoesUsuarios.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._notificacoesUsuariosTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -8772,19 +9166,19 @@ SELECT Id, Nome, Email, Senha, Nascimento, Foto, Sexo, TimeFavoritoId, perfil FR
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._jogadoresTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Jogadores.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._selecoesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Selecoes.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._jogadoresTableAdapter.Update(deletedRows));
+                    result = (result + this._selecoesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._comentarioTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Comentario.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._rodadasTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Rodadas.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._comentarioTableAdapter.Update(deletedRows));
+                    result = (result + this._rodadasTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

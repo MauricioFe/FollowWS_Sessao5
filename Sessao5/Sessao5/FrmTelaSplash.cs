@@ -64,7 +64,6 @@ namespace Sessao5
                     xml3.Save(currentFile);
                     break;
             }
-
         }
 
         private void player_PlayStateChange(object sender, AxWMPLib._WMPOCXEvents_PlayStateChangeEvent e)

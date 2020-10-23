@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Sessao5.models;
+using Sessao5.Sessao05DataSetTableAdapters;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media;
+using static Sessao5.Sessao05DataSet;
 
 namespace Sessao5
 {
@@ -21,9 +24,32 @@ namespace Sessao5
 
         private void llbEsqueceuSenha_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FrmRecuperarSenha form = new FrmRecuperarSenha();
-            form.Show();
-            this.Dispose();
+            UsuariosTableAdapter usuarioAdapter = new UsuariosTableAdapter();
+            UsuariosDataTable usuarioDt = usuarioAdapter.GetEmailExiste(txtEmail.Text);
+            int emailValido = usuarioAdapter.FillEmailExiste(sessao05DataSet1.Usuarios, txtEmail.Text);
+            Usuario usuario = new Usuario();
+            foreach (var item in usuarioDt)
+            {
+                usuario.Id = Convert.ToInt32(item["Id"]);
+                usuario.Nascimento = Convert.ToDateTime(item["Nascimento"]);
+                usuario.TimeFavoritoId = Convert.ToInt32(item["TimeFavoritoId"]);
+            }
+            if (txtEmail.Text != "" && emailValido > 0)
+            {
+                FrmRecuperarSenha form = new FrmRecuperarSenha(usuario);
+                form.Show();
+                this.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Digite um endereço de email válido");
+            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
