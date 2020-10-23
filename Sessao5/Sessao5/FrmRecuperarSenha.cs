@@ -95,5 +95,10 @@ namespace Sessao5
                 MessageBox.Show("Senha inválida");
             }
         }
+
+        private void txtSenha_TextChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show(sender.ToString());
+        }
     }
 }
