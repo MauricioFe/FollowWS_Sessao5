@@ -14,11 +14,9 @@ namespace Sessao5
 {
     public partial class FrmRecuperarSenha : Form
     {
-        Usuario usuario;
-        public FrmRecuperarSenha(Usuario usuario)
+        public FrmRecuperarSenha()
         {
             InitializeComponent();
-            this.usuario = usuario;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -32,8 +30,6 @@ namespace Sessao5
         {
             // TODO: This line of code loads data into the 'sessao05DataSet.Selecoes' table. You can move, or remove it, as needed.
             this.selecoesTableAdapter.Fill(this.sessao05DataSet.Selecoes);
-            dtpDataNascimento.Value = usuario.Nascimento.Date;
-            cboTimeFavorito.SelectedValue = usuario.TimeFavoritoId;
         }
 
         private void btnEntrar_Click(object sender, EventArgs e)

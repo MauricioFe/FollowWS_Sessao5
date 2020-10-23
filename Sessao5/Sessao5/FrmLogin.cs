@@ -25,18 +25,10 @@ namespace Sessao5
         private void llbEsqueceuSenha_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             UsuariosTableAdapter usuarioAdapter = new UsuariosTableAdapter();
-            UsuariosDataTable usuarioDt = usuarioAdapter.GetEmailExiste(txtEmail.Text);
             int emailValido = usuarioAdapter.FillEmailExiste(sessao05DataSet1.Usuarios, txtEmail.Text);
-            Usuario usuario = new Usuario();
-            foreach (var item in usuarioDt)
-            {
-                usuario.Id = Convert.ToInt32(item["Id"]);
-                usuario.Nascimento = Convert.ToDateTime(item["Nascimento"]);
-                usuario.TimeFavoritoId = Convert.ToInt32(item["TimeFavoritoId"]);
-            }
             if (txtEmail.Text != "" && emailValido > 0)
             {
-                FrmRecuperarSenha form = new FrmRecuperarSenha(usuario);
+                FrmRecuperarSenha form = new FrmRecuperarSenha();
                 form.Show();
                 this.Dispose();
             }

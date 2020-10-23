@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
@@ -22,10 +23,12 @@ namespace Sessao5
         public FrmTelaSplash()
         {
             InitializeComponent();
+            player.uiMode = "none";
         }
         string currentFile = $@"{AppDomain.CurrentDomain.BaseDirectory}Video.xml";
         private void FrmTelaSplash_Load(object sender, EventArgs e)
         {
+                      
             XElement x = XElement.Load(currentFile);
             if (!File.Exists(currentFile))
             {
