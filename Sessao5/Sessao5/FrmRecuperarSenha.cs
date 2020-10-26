@@ -49,8 +49,14 @@ namespace Sessao5
 
         private void txtSenha_Leave(object sender, EventArgs e)
         {
+            ValidaForcaSenha(txtSenha.Text);
+
+        }
+
+        private void ValidaForcaSenha(string senha)
+        {
             Regex regex = new Regex("^[a-z0-9]{8,15}$");
-            if (regex.IsMatch(txtSenha.Text) && iguais == 0)
+            if (regex.IsMatch(senha) && iguais == 0)
             {
                 lblForcaSenha.Text = "Alto";
                 lblForcaSenha.BackColor = Color.FromArgb(3, 166, 90);
@@ -75,7 +81,6 @@ namespace Sessao5
             {
                 MessageBox.Show("Sua senha precisa ter entre 8 e 15 caracteres, Não podem ter letras maiúsculas e nem caracteres especiais");
             }
-
         }
 
         private void cboTimeFavorito_Leave(object sender, EventArgs e)

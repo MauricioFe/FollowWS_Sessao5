@@ -50,22 +50,29 @@ namespace Sessao5
             int cont = usuariosAdapter.FillEmailExiste(sessao05DataSet.Usuarios, email);
             if (cont > 0)
             {
-                return true;
+                return false;
             }
-            return false;
+            return true;
         }
 
         private void txtEmail_Leave(object sender, EventArgs e)
         {
-            ValidaEmail(txtEmail.Text);
-            if (ValidaEmailUnico(txtEmail.Text))
+            if (!ValidaEmail(txtEmail.Text))
             {
-                lblForcaSenha.Text = "Email cadastrado";
-                lblForcaSenha.BackColor = Color.FromArgb(3, 166, 90);
-                lblForcaSenha.ForeColor = Color.White;
-                lblForcaSenha.Visible = true;
+                MessageBox.Show("Digite um email válido");
             }
-           
+            if (!ValidaEmailUnico(txtEmail.Text))
+            {
+                lblEmailcadastrado.Text = "Email cadastrado";
+                lblEmailcadastrado.BackColor = Color.FromArgb(217, 17, 54);
+                lblEmailcadastrado.ForeColor = Color.White;
+                lblEmailcadastrado.Visible = true;
+            }
+            else
+            {
+                lblEmailcadastrado.Visible = false;
+            }
+
         }
     }
 }
