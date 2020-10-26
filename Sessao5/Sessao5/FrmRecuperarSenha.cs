@@ -50,9 +50,6 @@ namespace Sessao5
         private void txtSenha_Leave(object sender, EventArgs e)
         {
             Regex regex = new Regex("^[a-z0-9]{8,15}$");
-
-
-
             if (regex.IsMatch(txtSenha.Text) && iguais == 0)
             {
                 lblForcaSenha.Text = "Alto";

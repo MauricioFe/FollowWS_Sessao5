@@ -65,6 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmCadastrarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCadastrarUsuario.Designer.cs">
+      <DependentUpon>FrmCadastrarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Sessao05DataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmCadastrarUsuario.resx">
+      <DependentUpon>FrmCadastrarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>

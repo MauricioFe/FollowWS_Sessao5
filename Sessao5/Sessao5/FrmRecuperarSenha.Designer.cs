@@ -147,7 +147,7 @@
             // 
             // lblForcaSenha
             // 
-            this.lblForcaSenha.Location = new System.Drawing.Point(560, 156);
+            this.lblForcaSenha.Location = new System.Drawing.Point(560, 158);
             this.lblForcaSenha.Name = "lblForcaSenha";
             this.lblForcaSenha.Size = new System.Drawing.Size(202, 20);
             this.lblForcaSenha.TabIndex = 8;

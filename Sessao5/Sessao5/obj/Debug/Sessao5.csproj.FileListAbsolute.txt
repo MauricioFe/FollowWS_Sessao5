@@ -15,3 +15,4 @@ C:\Users\mauri\Desktop\Treinamento\ProvasAprovadas\Sessao5\Entregas\FollowWS_Ses
 C:\Users\mauri\Desktop\Treinamento\ProvasAprovadas\Sessao5\Entregas\FollowWS_Sessao5\Sessao5\Sessao5\obj\Debug\Sessao5.exe
 C:\Users\mauri\Desktop\Treinamento\ProvasAprovadas\Sessao5\Entregas\FollowWS_Sessao5\Sessao5\Sessao5\obj\Debug\Sessao5.pdb
 C:\Users\mauri\Desktop\Treinamento\ProvasAprovadas\Sessao5\Entregas\FollowWS_Sessao5\Sessao5\Sessao5\bin\Debug\Sessao5.pdb
+C:\Users\mauri\Desktop\Treinamento\ProvasAprovadas\Sessao5\Entregas\FollowWS_Sessao5\Sessao5\Sessao5\obj\Debug\Sessao5.FrmCadastrarUsuario.resources

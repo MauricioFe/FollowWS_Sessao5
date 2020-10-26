@@ -77,5 +77,11 @@ namespace Sessao5
                 MessageBox.Show("Login feito para adm");
             }
         }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmCadastrarUsuario form = new FrmCadastrarUsuario();
+            form.ShowDialog();
+        }
     }
 }

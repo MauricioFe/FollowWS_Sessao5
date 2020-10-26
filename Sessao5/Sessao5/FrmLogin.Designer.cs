@@ -103,7 +103,7 @@
             this.btnEntrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(166)))), ((int)(((byte)(90)))));
             this.btnEntrar.FlatAppearance.BorderSize = 0;
             this.btnEntrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEntrar.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnEntrar.ForeColor = System.Drawing.Color.White;
             this.btnEntrar.Location = new System.Drawing.Point(172, 293);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(125, 29);
@@ -132,6 +132,7 @@
             this.linkLabel2.TabIndex = 9;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "Cadastre-se";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // button1
             // 
