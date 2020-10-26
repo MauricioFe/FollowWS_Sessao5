@@ -16,7 +16,7 @@ namespace Sessao5
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmTelaSplash());
+            Application.Run(new FrmLogin());
         }
     }
 }

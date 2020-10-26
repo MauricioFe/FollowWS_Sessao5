@@ -78,6 +78,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(397, 30);
             this.txtEmail.TabIndex = 4;
+            this.txtEmail.Text = "usuario@email.com";
             // 
             // txtSenha
             // 

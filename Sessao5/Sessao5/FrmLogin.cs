@@ -30,7 +30,7 @@ namespace Sessao5
             {
                 FrmRecuperarSenha form = new FrmRecuperarSenha(txtEmail.Text);
                 form.Show();
-                this.Dispose();
+                this.Hide();
             }
             else
             {

@@ -147,20 +147,18 @@
             // 
             // lblForcaSenha
             // 
-            this.lblForcaSenha.AutoSize = true;
-            this.lblForcaSenha.Location = new System.Drawing.Point(589, 156);
+            this.lblForcaSenha.Location = new System.Drawing.Point(560, 156);
             this.lblForcaSenha.Name = "lblForcaSenha";
-            this.lblForcaSenha.Size = new System.Drawing.Size(54, 22);
+            this.lblForcaSenha.Size = new System.Drawing.Size(202, 20);
             this.lblForcaSenha.TabIndex = 8;
             this.lblForcaSenha.Text = "label5";
             this.lblForcaSenha.Visible = false;
             // 
             // lblSenhasIdenticas
             // 
-            this.lblSenhasIdenticas.AutoSize = true;
-            this.lblSenhasIdenticas.Location = new System.Drawing.Point(589, 191);
+            this.lblSenhasIdenticas.Location = new System.Drawing.Point(560, 188);
             this.lblSenhasIdenticas.Name = "lblSenhasIdenticas";
-            this.lblSenhasIdenticas.Size = new System.Drawing.Size(54, 22);
+            this.lblSenhasIdenticas.Size = new System.Drawing.Size(202, 20);
             this.lblSenhasIdenticas.TabIndex = 9;
             this.lblSenhasIdenticas.Text = "label6";
             this.lblSenhasIdenticas.Visible = false;

@@ -16,6 +16,9 @@ namespace Sessao5
     public partial class FrmRecuperarSenha : Form
     {
         string email;
+        string bacon;
+        int iguais = 0;
+        int diferentes = 0;
         public FrmRecuperarSenha(string email)
         {
             InitializeComponent();
@@ -43,15 +46,32 @@ namespace Sessao5
         private void txtSenha_Leave(object sender, EventArgs e)
         {
             Regex regex = new Regex("^[a-z0-9]{8,15}$");
-            if (regex.IsMatch(txtSenha.Text) && txtSenha.Text == txtConfirmacao.Text)
+            if (regex.IsMatch(txtSenha.Text) && iguais == 0)
             {
-                btnEntrar.Enabled = true;
+                lblForcaSenha.Text = "Alto";
+                lblForcaSenha.BackColor = Color.FromArgb(3, 166, 90);
+                lblForcaSenha.ForeColor = Color.White;
+                lblForcaSenha.Visible = true;
+            }
+            else if (regex.IsMatch(txtSenha.Text) && iguais == 1)
+            {
+                lblForcaSenha.Text = "Médio";
+                lblForcaSenha.BackColor = Color.FromArgb(242, 135, 5);
+                lblForcaSenha.ForeColor = Color.White;
+                lblForcaSenha.Visible = true;
+            }
+            else if (regex.IsMatch(txtSenha.Text) && iguais > 1)
+            {
+                lblForcaSenha.Text = "Baixo";
+                lblForcaSenha.BackColor = Color.FromArgb(217, 17, 54);
+                lblForcaSenha.ForeColor = Color.White;
+                lblForcaSenha.Visible = true;
             }
             else
             {
-                btnEntrar.Enabled = false;
-                MessageBox.Show("Senha inválida");
+                MessageBox.Show("Sua senha precisa ter entre 8 e 15 caracteres, Não podem ter letras maiúsculas e nem caracteres especiais");
             }
+
         }
 
         private void cboTimeFavorito_Leave(object sender, EventArgs e)
@@ -87,18 +107,41 @@ namespace Sessao5
             Regex regex = new Regex("^[a-z0-9]{8,15}$");
             if (regex.IsMatch(txtSenha.Text) && txtSenha.Text == txtConfirmacao.Text)
             {
+                lblSenhasIdenticas.Text = "Senhas Identicas";
+                lblSenhasIdenticas.BackColor = Color.FromArgb(3, 166, 90);
+                lblSenhasIdenticas.ForeColor = Color.White;
+                lblSenhasIdenticas.Visible = true;
                 btnEntrar.Enabled = true;
             }
             else
             {
+                lblSenhasIdenticas.Text = "Senhas não correspondem";
+                lblSenhasIdenticas.BackColor = Color.FromArgb(217, 17, 54);
                 btnEntrar.Enabled = false;
-                MessageBox.Show("Senha inválida");
+                lblSenhasIdenticas.Visible = true;
             }
         }
 
         private void txtSenha_TextChanged(object sender, EventArgs e)
         {
-            MessageBox.Show(sender.ToString());
+            var teste = (TextBox)sender;
+            MessageBox.Show(teste.Text);
+            for (int i = 0; i < txtSenha.Text.Length; i++)
+            {
+                bacon = txtSenha.Text.Substring(i, 1);
+                if (i > 0)
+                {
+                    string antes = txtSenha.Text.Substring(i - 1, 1);
+                    if (bacon != antes)
+                    {
+                        diferentes++;
+                    }
+                    else
+                    {
+                        iguais++;
+                    }
+                }
+            }
         }
     }
 }
