@@ -17,6 +17,8 @@ namespace Sessao5
     {
         UsuariosTableAdapter usuariosAdapter = new UsuariosTableAdapter();
         UsuariosDataTable usuariosDt = new UsuariosDataTable();
+        FrmRecuperarSenha form = new FrmRecuperarSenha();
+
         public FrmCadastrarUsuario()
         {
             InitializeComponent();
@@ -35,6 +37,8 @@ namespace Sessao5
             this.selecoesTableAdapter.Fill(this.sessao05DataSet.Selecoes);
 
         }
+
+
 
         public static bool ValidaEmail(string email)
         {
@@ -73,6 +77,16 @@ namespace Sessao5
                 lblEmailcadastrado.Visible = false;
             }
 
+        }
+
+        private void txtSenha_Leave(object sender, EventArgs e)
+        {
+            form.ValidaForcaSenha(txtSenha.Text);
+        }
+
+        private void txtConfirmacao_Leave(object sender, EventArgs e)
+        {
+            form.ValidarConfirmacaoSenha(txtSenha.Text, txtConfirmacao.Text);
         }
     }
 }

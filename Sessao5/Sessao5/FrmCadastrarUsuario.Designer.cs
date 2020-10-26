@@ -33,6 +33,9 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkSelecionarFoto = new System.Windows.Forms.LinkLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblEmailcadastrado = new System.Windows.Forms.Label();
+            this.lblSenhasIdenticas = new System.Windows.Forms.Label();
+            this.lblForcaSenha = new System.Windows.Forms.Label();
             this.txtConfirmacao = new System.Windows.Forms.TextBox();
             this.txtSenha = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -43,6 +46,8 @@
             this.rbtFeminino = new System.Windows.Forms.RadioButton();
             this.rbtMasculino = new System.Windows.Forms.RadioButton();
             this.cboTimeFavorito = new System.Windows.Forms.ComboBox();
+            this.selecoesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sessao05DataSet = new Sessao5.Sessao05DataSet();
             this.dtpDataNascimento = new System.Windows.Forms.DateTimePicker();
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -50,17 +55,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.ofpFile = new System.Windows.Forms.OpenFileDialog();
-            this.lblSenhasIdenticas = new System.Windows.Forms.Label();
-            this.lblForcaSenha = new System.Windows.Forms.Label();
-            this.lblEmailcadastrado = new System.Windows.Forms.Label();
-            this.sessao05DataSet = new Sessao5.Sessao05DataSet();
-            this.selecoesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.selecoesTableAdapter = new Sessao5.Sessao05DataSetTableAdapters.SelecoesTableAdapter();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sessao05DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selecoesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sessao05DataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -112,15 +112,42 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Login";
             // 
+            // lblEmailcadastrado
+            // 
+            this.lblEmailcadastrado.Location = new System.Drawing.Point(453, 50);
+            this.lblEmailcadastrado.Name = "lblEmailcadastrado";
+            this.lblEmailcadastrado.Size = new System.Drawing.Size(192, 20);
+            this.lblEmailcadastrado.TabIndex = 25;
+            this.lblEmailcadastrado.Text = "label5";
+            this.lblEmailcadastrado.Visible = false;
+            // 
+            // lblSenhasIdenticas
+            // 
+            this.lblSenhasIdenticas.Location = new System.Drawing.Point(453, 133);
+            this.lblSenhasIdenticas.Name = "lblSenhasIdenticas";
+            this.lblSenhasIdenticas.Size = new System.Drawing.Size(192, 20);
+            this.lblSenhasIdenticas.TabIndex = 24;
+            this.lblSenhasIdenticas.Text = "label6";
+            this.lblSenhasIdenticas.Visible = false;
+            // 
+            // lblForcaSenha
+            // 
+            this.lblForcaSenha.Location = new System.Drawing.Point(453, 94);
+            this.lblForcaSenha.Name = "lblForcaSenha";
+            this.lblForcaSenha.Size = new System.Drawing.Size(192, 20);
+            this.lblForcaSenha.TabIndex = 23;
+            this.lblForcaSenha.Text = "label5";
+            this.lblForcaSenha.Visible = false;
+            // 
             // txtConfirmacao
             // 
-            this.txtConfirmacao.Enabled = false;
             this.txtConfirmacao.Location = new System.Drawing.Point(159, 130);
             this.txtConfirmacao.MaxLength = 15;
             this.txtConfirmacao.Name = "txtConfirmacao";
             this.txtConfirmacao.Size = new System.Drawing.Size(288, 30);
             this.txtConfirmacao.TabIndex = 22;
             this.txtConfirmacao.UseSystemPasswordChar = true;
+            this.txtConfirmacao.Leave += new System.EventHandler(this.txtConfirmacao_Leave);
             // 
             // txtSenha
             // 
@@ -129,6 +156,7 @@
             this.txtSenha.Size = new System.Drawing.Size(368, 30);
             this.txtSenha.TabIndex = 21;
             this.txtSenha.UseSystemPasswordChar = true;
+            this.txtSenha.Leave += new System.EventHandler(this.txtSenha_Leave);
             // 
             // txtEmail
             // 
@@ -216,6 +244,16 @@
             this.cboTimeFavorito.TabIndex = 26;
             this.cboTimeFavorito.ValueMember = "Id";
             // 
+            // selecoesBindingSource
+            // 
+            this.selecoesBindingSource.DataMember = "Selecoes";
+            this.selecoesBindingSource.DataSource = this.sessao05DataSet;
+            // 
+            // sessao05DataSet
+            // 
+            this.sessao05DataSet.DataSetName = "Sessao05DataSet";
+            this.sessao05DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // dtpDataNascimento
             // 
             this.dtpDataNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -272,43 +310,6 @@
             this.ofpFile.FileName = "openFileDialog1";
             this.ofpFile.Title = "Escolha uma foto sua";
             // 
-            // lblSenhasIdenticas
-            // 
-            this.lblSenhasIdenticas.Location = new System.Drawing.Point(453, 133);
-            this.lblSenhasIdenticas.Name = "lblSenhasIdenticas";
-            this.lblSenhasIdenticas.Size = new System.Drawing.Size(192, 20);
-            this.lblSenhasIdenticas.TabIndex = 24;
-            this.lblSenhasIdenticas.Text = "label6";
-            this.lblSenhasIdenticas.Visible = false;
-            // 
-            // lblForcaSenha
-            // 
-            this.lblForcaSenha.Location = new System.Drawing.Point(453, 94);
-            this.lblForcaSenha.Name = "lblForcaSenha";
-            this.lblForcaSenha.Size = new System.Drawing.Size(192, 20);
-            this.lblForcaSenha.TabIndex = 23;
-            this.lblForcaSenha.Text = "label5";
-            this.lblForcaSenha.Visible = false;
-            // 
-            // lblEmailcadastrado
-            // 
-            this.lblEmailcadastrado.Location = new System.Drawing.Point(453, 50);
-            this.lblEmailcadastrado.Name = "lblEmailcadastrado";
-            this.lblEmailcadastrado.Size = new System.Drawing.Size(192, 20);
-            this.lblEmailcadastrado.TabIndex = 25;
-            this.lblEmailcadastrado.Text = "label5";
-            this.lblEmailcadastrado.Visible = false;
-            // 
-            // sessao05DataSet
-            // 
-            this.sessao05DataSet.DataSetName = "Sessao05DataSet";
-            this.sessao05DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // selecoesBindingSource
-            // 
-            this.selecoesBindingSource.DataMember = "Selecoes";
-            this.selecoesBindingSource.DataSource = this.sessao05DataSet;
-            // 
             // selecoesTableAdapter
             // 
             this.selecoesTableAdapter.ClearBeforeFill = true;
@@ -346,8 +347,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.sessao05DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.selecoesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sessao05DataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

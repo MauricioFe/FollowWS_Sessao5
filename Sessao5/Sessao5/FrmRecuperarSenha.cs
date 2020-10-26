@@ -24,6 +24,11 @@ namespace Sessao5
             this.email = email;
             this.id = id;
         }
+        public FrmRecuperarSenha()
+        {
+            InitializeComponent();
+
+        }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -53,7 +58,7 @@ namespace Sessao5
 
         }
 
-        private void ValidaForcaSenha(string senha)
+        public void ValidaForcaSenha(string senha)
         {
             Regex regex = new Regex("^[a-z0-9]{8,15}$");
             if (regex.IsMatch(senha) && iguais == 0)
@@ -113,8 +118,13 @@ namespace Sessao5
 
         private void txtConfirmacao_Leave(object sender, EventArgs e)
         {
+            ValidarConfirmacaoSenha(txtSenha.Text, txtConfirmacao.Text);
+        }
+
+        public void ValidarConfirmacaoSenha(string senha, string confimacao)
+        {
             Regex regex = new Regex("^[a-z0-9]{8,15}$");
-            if (regex.IsMatch(txtSenha.Text) && txtSenha.Text == txtConfirmacao.Text)
+            if (regex.IsMatch(senha) && senha == confimacao)
             {
                 lblSenhasIdenticas.Text = "Senhas Identicas";
                 lblSenhasIdenticas.BackColor = Color.FromArgb(3, 166, 90);
@@ -130,9 +140,14 @@ namespace Sessao5
                 lblSenhasIdenticas.Visible = true;
             }
         }
+
         private void txtSenha_KeyPress(object sender, KeyPressEventArgs e)
         {
             var txt = (TextBox)sender;
+            if (iguais < 0)
+            {
+                iguais = 0;
+            }
             if (e.KeyChar == (char)Keys.Back)
             {
                 for (int i = 0; i < txtSenha.Text.Length; i++)
