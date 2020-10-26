@@ -16,9 +16,7 @@ namespace Sessao5
     public partial class FrmRecuperarSenha : Form
     {
         string email;
-        string bacon;
         int iguais = 0;
-        int diferentes = 0;
         public FrmRecuperarSenha(string email)
         {
             InitializeComponent();
@@ -46,6 +44,9 @@ namespace Sessao5
         private void txtSenha_Leave(object sender, EventArgs e)
         {
             Regex regex = new Regex("^[a-z0-9]{8,15}$");
+
+
+
             if (regex.IsMatch(txtSenha.Text) && iguais == 0)
             {
                 lblForcaSenha.Text = "Alto";
@@ -124,22 +125,28 @@ namespace Sessao5
 
         private void txtSenha_TextChanged(object sender, EventArgs e)
         {
-            var teste = (TextBox)sender;
-            MessageBox.Show(teste.Text);
+        }
+
+        private void txtSenha_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            var txt = (TextBox)sender;
+            if (e.KeyChar == (char)Keys.Back)
+            {
+                for (int i = 0; i < txtSenha.Text.Length; i++)
+                {
+                    if (!txt.Text.Contains(e.KeyChar.ToString()))
+                    {
+                        iguais--;
+                        break;
+                    }
+                }
+            }
             for (int i = 0; i < txtSenha.Text.Length; i++)
             {
-                bacon = txtSenha.Text.Substring(i, 1);
-                if (i > 0)
+                if (txt.Text.Contains(e.KeyChar.ToString()))
                 {
-                    string antes = txtSenha.Text.Substring(i - 1, 1);
-                    if (bacon != antes)
-                    {
-                        diferentes++;
-                    }
-                    else
-                    {
-                        iguais++;
-                    }
+                    iguais++;
+                    break;
                 }
             }
         }
