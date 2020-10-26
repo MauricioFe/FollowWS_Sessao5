@@ -131,7 +131,6 @@
             this.txtSenha.Size = new System.Drawing.Size(242, 30);
             this.txtSenha.TabIndex = 6;
             this.txtSenha.UseSystemPasswordChar = true;
-            this.txtSenha.TextChanged += new System.EventHandler(this.txtSenha_TextChanged);
             this.txtSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSenha_KeyPress);
             this.txtSenha.Leave += new System.EventHandler(this.txtSenha_Leave);
             // 

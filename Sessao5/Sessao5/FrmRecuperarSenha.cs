@@ -16,11 +16,13 @@ namespace Sessao5
     public partial class FrmRecuperarSenha : Form
     {
         string email;
+        int id;
         int iguais = 0;
-        public FrmRecuperarSenha(string email)
+        public FrmRecuperarSenha(string email, int id)
         {
             InitializeComponent();
             this.email = email;
+            this.id = id;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -38,7 +40,11 @@ namespace Sessao5
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-
+            UsuariosTableAdapter usuarioAdapter = new UsuariosTableAdapter();
+            usuarioAdapter.UpdateSenha(txtSenha.Text, id);
+            FrmLogin form = new FrmLogin();
+            form.Show();
+            this.Dispose();
         }
 
         private void txtSenha_Leave(object sender, EventArgs e)
@@ -122,11 +128,6 @@ namespace Sessao5
                 lblSenhasIdenticas.Visible = true;
             }
         }
-
-        private void txtSenha_TextChanged(object sender, EventArgs e)
-        {
-        }
-
         private void txtSenha_KeyPress(object sender, KeyPressEventArgs e)
         {
             var txt = (TextBox)sender;
