@@ -181,6 +181,8 @@
             this.cboTimeFavorito.Size = new System.Drawing.Size(286, 30);
             this.cboTimeFavorito.TabIndex = 26;
             this.cboTimeFavorito.ValueMember = "Id";
+            this.cboTimeFavorito.SelectionChangeCommitted += new System.EventHandler(this.cboTimeFavorito_SelectionChangeCommitted);
+            this.cboTimeFavorito.Leave += new System.EventHandler(this.cboTimeFavorito_Leave);
             // 
             // selecoesBindingSource
             // 
@@ -199,7 +201,7 @@
             this.dtpDataNascimento.Name = "dtpDataNascimento";
             this.dtpDataNascimento.Size = new System.Drawing.Size(242, 30);
             this.dtpDataNascimento.TabIndex = 25;
-            this.dtpDataNascimento.ValueChanged += new System.EventHandler(this.dtpDataNascimento_ValueChanged);
+            this.dtpDataNascimento.Leave += new System.EventHandler(this.dtpDataNascimento_Leave);
             // 
             // txtNome
             // 

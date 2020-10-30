@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -16,6 +18,7 @@ namespace Sessao5
     public partial class FrmCadastrarUsuario : Form
     {
         string sexo = "M";
+        List<bool> validacoes = new List<bool>();
         UsuariosTableAdapter usuariosAdapter = new UsuariosTableAdapter();
         UsuariosDataTable usuariosDt = new UsuariosDataTable();
         FrmRecuperarSenha form = new FrmRecuperarSenha();
@@ -23,6 +26,7 @@ namespace Sessao5
         public FrmCadastrarUsuario()
         {
             InitializeComponent();
+            btnCadastrar.Enabled = false;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -72,12 +76,25 @@ namespace Sessao5
             {
                 lblEmailcadastrado.Visible = false;
             }
+            ConferindoValidacoes();
 
+        }
+
+        private void ConferindoValidacoes()
+        {
+            if (ValidaEmail(txtEmail.Text) && (ValidaData(dtpDataNascimento.Value)) && ValidaNome(txtNome.Text))
+            {
+                btnCadastrar.Enabled = true;
+            }
+            else
+            {
+                btnCadastrar.Enabled = false;
+            }
         }
 
         public bool ValidaNome(string nome)
         {
-            Regex regex = new Regex(@"^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+ [A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+$");
+            Regex regex = new Regex(@"^([A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+ [A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+)+$");
             if (regex.IsMatch(nome))
                 return true;
             return false;
@@ -89,22 +106,18 @@ namespace Sessao5
             {
                 MessageBox.Show("Esse campo precisa que tenha no mínimo dois nomes");
             }
-        }
-
-        private void dtpDataNascimento_ValueChanged(object sender, EventArgs e)
-        {
-            if (!ValidaData(((DateTimePicker)sender).Value))
-            {
-                MessageBox.Show("Para ser cadastrado você precisa ter mais de 18 anos");
-            }
+            ConferindoValidacoes();
 
         }
-
-        private static bool ValidaData(DateTime date)
+        private bool ValidaData(DateTime date)
         {
             int idade = new DateTime(DateTime.Now.Subtract(date).Ticks).Year - 1;
-            if (idade > 18) return true;
-            return false;
+            if (idade < 18)
+            {
+                dtpDataNascimento.Value = DateTime.Now;
+                return false;
+            }
+            return true;
         }
 
         private void rbtMasculino_CheckedChanged(object sender, EventArgs e)
@@ -130,6 +143,29 @@ namespace Sessao5
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
 
+            ImageConverter imagem = new ImageConverter();
+            usuariosAdapter.Insert(txtNome.Text, txtEmail.Text, "admin123", dtpDataNascimento.Value, (byte[])imagem.ConvertTo(pictureBox1.Image, typeof(byte[])), sexo, Convert.ToInt32(cboTimeFavorito.SelectedValue.ToString()), "1");
+            MessageBox.Show("Usuario cadastrado com sucesso.");
+            this.Dispose();
+        }
+
+        private void dtpDataNascimento_Leave(object sender, EventArgs e)
+        {
+            if (!ValidaData(((DateTimePicker)sender).Value))
+            {
+                MessageBox.Show("Para ser cadastrado você precisa ter mais de 18 anos");
+            }
+            ConferindoValidacoes();
+        }
+
+        private void cboTimeFavorito_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            ConferindoValidacoes();
+        }
+
+        private void cboTimeFavorito_Leave(object sender, EventArgs e)
+        {
+            ConferindoValidacoes();
         }
     }
 }
