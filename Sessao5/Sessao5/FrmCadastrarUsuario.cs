@@ -15,6 +15,7 @@ namespace Sessao5
 {
     public partial class FrmCadastrarUsuario : Form
     {
+        string sexo = "M";
         UsuariosTableAdapter usuariosAdapter = new UsuariosTableAdapter();
         UsuariosDataTable usuariosDt = new UsuariosDataTable();
         FrmRecuperarSenha form = new FrmRecuperarSenha();
@@ -26,8 +27,6 @@ namespace Sessao5
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            FrmLogin login = new FrmLogin();
-            login.Show();
             this.Dispose();
         }
 
@@ -37,9 +36,6 @@ namespace Sessao5
             this.selecoesTableAdapter.Fill(this.sessao05DataSet.Selecoes);
 
         }
-
-
-
         public static bool ValidaEmail(string email)
         {
             Regex regex = new Regex(@"^[a-zA-Z][a-zA-Z0-9]{3,}[.\-_]?[a-zA-Z][a-zA-Z0-9]{3,}@[a-zA-Z]{3,}\.[a-zA-Z]{2,}$");
@@ -79,14 +75,51 @@ namespace Sessao5
 
         }
 
-        private void txtSenha_Leave(object sender, EventArgs e)
+        public bool ValidaNome(string nome)
         {
-            form.ValidaForcaSenha(txtSenha.Text);
+            Regex regex = new Regex(@"^[a-zA-Z] [a-zA-z]$");
+            if (regex.IsMatch(nome))
+                return true;
+            return false;
         }
 
-        private void txtConfirmacao_Leave(object sender, EventArgs e)
+        private void txtNome_Leave(object sender, EventArgs e)
         {
-            form.ValidarConfirmacaoSenha(txtSenha.Text, txtConfirmacao.Text);
+            if (!ValidaNome(((TextBox)sender).Text))
+            {
+                MessageBox.Show("Esse campo precisa que tenha no mínimo dois nomes");
+            }
+        }
+
+        private void dtpDataNascimento_ValueChanged(object sender, EventArgs e)
+        {
+            if (!ValidaData(((DateTimePicker)sender).Value))
+            {
+                MessageBox.Show("Para ser cadastrado você precisa ter mais de 18 anos");
+            }
+            
+        }
+
+        private static bool ValidaData(DateTime date)
+        {
+            int idade = new DateTime(DateTime.Now.Subtract(date).Ticks).Year - 1;
+            if (idade > 18) return true;
+            return false;
+        }
+
+        private void rbtMasculino_CheckedChanged(object sender, EventArgs e)
+        {
+            sexo = "M";
+        }
+
+        private void rbtFeminino_CheckedChanged(object sender, EventArgs e)
+        {
+            sexo = "F";
+        }
+
+        private void linkSelecionarFoto_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            
         }
     }
 }

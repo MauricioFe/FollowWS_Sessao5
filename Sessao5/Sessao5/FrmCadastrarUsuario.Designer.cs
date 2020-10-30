@@ -34,14 +34,8 @@
             this.linkSelecionarFoto = new System.Windows.Forms.LinkLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblEmailcadastrado = new System.Windows.Forms.Label();
-            this.lblSenhasIdenticas = new System.Windows.Forms.Label();
-            this.lblForcaSenha = new System.Windows.Forms.Label();
-            this.txtConfirmacao = new System.Windows.Forms.TextBox();
-            this.txtSenha = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rbtFeminino = new System.Windows.Forms.RadioButton();
             this.rbtMasculino = new System.Windows.Forms.RadioButton();
@@ -57,10 +51,12 @@
             this.ofpFile = new System.Windows.Forms.OpenFileDialog();
             this.selecoesTableAdapter = new Sessao5.Sessao05DataSetTableAdapters.SelecoesTableAdapter();
             this.btnCadastrar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selecoesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sessao05DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -76,7 +72,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(473, 536);
+            this.linkLabel1.Location = new System.Drawing.Point(694, 385);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(52, 22);
             this.linkLabel1.TabIndex = 20;
@@ -87,27 +83,22 @@
             // linkSelecionarFoto
             // 
             this.linkSelecionarFoto.AutoSize = true;
-            this.linkSelecionarFoto.Location = new System.Drawing.Point(545, 536);
+            this.linkSelecionarFoto.Location = new System.Drawing.Point(760, 385);
             this.linkSelecionarFoto.Name = "linkSelecionarFoto";
             this.linkSelecionarFoto.Size = new System.Drawing.Size(123, 22);
             this.linkSelecionarFoto.TabIndex = 21;
             this.linkSelecionarFoto.TabStop = true;
             this.linkSelecionarFoto.Text = "Selecionar Foto";
+            this.linkSelecionarFoto.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSelecionarFoto_LinkClicked);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblEmailcadastrado);
-            this.groupBox1.Controls.Add(this.lblSenhasIdenticas);
-            this.groupBox1.Controls.Add(this.lblForcaSenha);
-            this.groupBox1.Controls.Add(this.txtConfirmacao);
-            this.groupBox1.Controls.Add(this.txtSenha);
             this.groupBox1.Controls.Add(this.txtEmail);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Location = new System.Drawing.Point(17, 256);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(651, 217);
+            this.groupBox1.Size = new System.Drawing.Size(651, 117);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Login";
@@ -120,43 +111,6 @@
             this.lblEmailcadastrado.TabIndex = 25;
             this.lblEmailcadastrado.Text = "label5";
             this.lblEmailcadastrado.Visible = false;
-            // 
-            // lblSenhasIdenticas
-            // 
-            this.lblSenhasIdenticas.Location = new System.Drawing.Point(453, 133);
-            this.lblSenhasIdenticas.Name = "lblSenhasIdenticas";
-            this.lblSenhasIdenticas.Size = new System.Drawing.Size(192, 20);
-            this.lblSenhasIdenticas.TabIndex = 24;
-            this.lblSenhasIdenticas.Text = "label6";
-            this.lblSenhasIdenticas.Visible = false;
-            // 
-            // lblForcaSenha
-            // 
-            this.lblForcaSenha.Location = new System.Drawing.Point(453, 94);
-            this.lblForcaSenha.Name = "lblForcaSenha";
-            this.lblForcaSenha.Size = new System.Drawing.Size(192, 20);
-            this.lblForcaSenha.TabIndex = 23;
-            this.lblForcaSenha.Text = "label5";
-            this.lblForcaSenha.Visible = false;
-            // 
-            // txtConfirmacao
-            // 
-            this.txtConfirmacao.Location = new System.Drawing.Point(159, 130);
-            this.txtConfirmacao.MaxLength = 15;
-            this.txtConfirmacao.Name = "txtConfirmacao";
-            this.txtConfirmacao.Size = new System.Drawing.Size(288, 30);
-            this.txtConfirmacao.TabIndex = 22;
-            this.txtConfirmacao.UseSystemPasswordChar = true;
-            this.txtConfirmacao.Leave += new System.EventHandler(this.txtConfirmacao_Leave);
-            // 
-            // txtSenha
-            // 
-            this.txtSenha.Location = new System.Drawing.Point(79, 91);
-            this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(368, 30);
-            this.txtSenha.TabIndex = 21;
-            this.txtSenha.UseSystemPasswordChar = true;
-            this.txtSenha.Leave += new System.EventHandler(this.txtSenha_Leave);
             // 
             // txtEmail
             // 
@@ -174,24 +128,6 @@
             this.label10.Size = new System.Drawing.Size(51, 22);
             this.label10.TabIndex = 19;
             this.label10.Text = "Email";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(22, 94);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(57, 22);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "Senha";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(22, 133);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(131, 22);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Confirmar Senha";
             // 
             // groupBox2
             // 
@@ -220,6 +156,7 @@
             this.rbtFeminino.TabIndex = 28;
             this.rbtFeminino.Text = "Feminino";
             this.rbtFeminino.UseVisualStyleBackColor = true;
+            this.rbtFeminino.CheckedChanged += new System.EventHandler(this.rbtFeminino_CheckedChanged);
             // 
             // rbtMasculino
             // 
@@ -232,6 +169,7 @@
             this.rbtMasculino.TabStop = true;
             this.rbtMasculino.Text = "Masculino";
             this.rbtMasculino.UseVisualStyleBackColor = true;
+            this.rbtMasculino.CheckedChanged += new System.EventHandler(this.rbtMasculino_CheckedChanged);
             // 
             // cboTimeFavorito
             // 
@@ -261,6 +199,7 @@
             this.dtpDataNascimento.Name = "dtpDataNascimento";
             this.dtpDataNascimento.Size = new System.Drawing.Size(242, 30);
             this.dtpDataNascimento.TabIndex = 25;
+            this.dtpDataNascimento.ValueChanged += new System.EventHandler(this.dtpDataNascimento_ValueChanged);
             // 
             // txtNome
             // 
@@ -268,6 +207,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(493, 30);
             this.txtNome.TabIndex = 24;
+            this.txtNome.Leave += new System.EventHandler(this.txtNome_Leave);
             // 
             // label7
             // 
@@ -320,17 +260,26 @@
             this.btnCadastrar.FlatAppearance.BorderSize = 0;
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCadastrar.ForeColor = System.Drawing.Color.White;
-            this.btnCadastrar.Location = new System.Drawing.Point(17, 504);
+            this.btnCadastrar.Location = new System.Drawing.Point(17, 379);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(125, 28);
             this.btnCadastrar.TabIndex = 24;
             this.btnCadastrar.Text = "Cadastrar";
             this.btnCadastrar.UseVisualStyleBackColor = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(694, 241);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(185, 132);
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
+            // 
             // FrmCadastrarUsuario
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.ClientSize = new System.Drawing.Size(680, 567);
+            this.ClientSize = new System.Drawing.Size(895, 418);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCadastrar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -349,6 +298,7 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selecoesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sessao05DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -360,12 +310,8 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkSelecionarFoto;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtConfirmacao;
-        private System.Windows.Forms.TextBox txtSenha;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton rbtFeminino;
         private System.Windows.Forms.RadioButton rbtMasculino;
@@ -378,11 +324,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.OpenFileDialog ofpFile;
         private System.Windows.Forms.Label lblEmailcadastrado;
-        private System.Windows.Forms.Label lblSenhasIdenticas;
-        private System.Windows.Forms.Label lblForcaSenha;
         private Sessao05DataSet sessao05DataSet;
         private System.Windows.Forms.BindingSource selecoesBindingSource;
         private Sessao05DataSetTableAdapters.SelecoesTableAdapter selecoesTableAdapter;
         private System.Windows.Forms.Button btnCadastrar;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
