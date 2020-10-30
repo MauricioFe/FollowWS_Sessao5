@@ -61,26 +61,48 @@ namespace Sessao5
         public void ValidaForcaSenha(string senha)
         {
             Regex regex = new Regex("^[a-z0-9]{8,15}$");
+            Regex regexNum = new Regex("[0-9]+");
             if (regex.IsMatch(senha) && iguais == 0)
             {
-                lblForcaSenha.Text = "Alto";
-                lblForcaSenha.BackColor = Color.FromArgb(3, 166, 90);
-                lblForcaSenha.ForeColor = Color.White;
-                lblForcaSenha.Visible = true;
+                if (regexNum.IsMatch(senha))
+                {
+                    lblForcaSenha.Text = "Alto";
+                    lblForcaSenha.BackColor = Color.FromArgb(3, 166, 90);
+                    lblForcaSenha.ForeColor = Color.White;
+                    lblForcaSenha.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show("A senha deve conter ao menos um número");
+                }
             }
             else if (regex.IsMatch(txtSenha.Text) && iguais == 1)
             {
-                lblForcaSenha.Text = "Médio";
-                lblForcaSenha.BackColor = Color.FromArgb(242, 135, 5);
-                lblForcaSenha.ForeColor = Color.White;
-                lblForcaSenha.Visible = true;
+                if (regexNum.IsMatch(senha))
+                {
+                    lblForcaSenha.Text = "Médio";
+                    lblForcaSenha.BackColor = Color.FromArgb(242, 135, 5);
+                    lblForcaSenha.ForeColor = Color.White;
+                    lblForcaSenha.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show("A senha deve conter ao menos um número");
+                }
             }
             else if (regex.IsMatch(txtSenha.Text) && iguais > 1)
             {
-                lblForcaSenha.Text = "Baixo";
-                lblForcaSenha.BackColor = Color.FromArgb(217, 17, 54);
-                lblForcaSenha.ForeColor = Color.White;
-                lblForcaSenha.Visible = true;
+                if (regexNum.IsMatch(senha))
+                {
+                    lblForcaSenha.Text = "Baixo";
+                    lblForcaSenha.BackColor = Color.FromArgb(217, 17, 54);
+                    lblForcaSenha.ForeColor = Color.White;
+                    lblForcaSenha.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show("A senha deve conter ao menos um número");
+                }
             }
             else
             {

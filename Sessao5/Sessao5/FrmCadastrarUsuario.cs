@@ -38,7 +38,7 @@ namespace Sessao5
         }
         public static bool ValidaEmail(string email)
         {
-            Regex regex = new Regex(@"^[a-zA-Z][a-zA-Z0-9]{3,}[.\-_]?[a-zA-Z][a-zA-Z0-9]{3,}@[a-zA-Z]{3,}\.[a-zA-Z]{2,}$");
+            Regex regex = new Regex(@"^[a-zA-Z][a-zA-Z0-9]{3,}([.\-_]?[a-zA-Z][a-zA-Z0-9]{3,})?@[a-zA-Z]{3,}\.[a-zA-Z]{2,}$");
             if (regex.IsMatch(email))
             {
                 return true;
@@ -77,7 +77,7 @@ namespace Sessao5
 
         public bool ValidaNome(string nome)
         {
-            Regex regex = new Regex(@"^[a-zA-Z] [a-zA-z]$");
+            Regex regex = new Regex(@"^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+ [A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+$");
             if (regex.IsMatch(nome))
                 return true;
             return false;
@@ -97,7 +97,7 @@ namespace Sessao5
             {
                 MessageBox.Show("Para ser cadastrado você precisa ter mais de 18 anos");
             }
-            
+
         }
 
         private static bool ValidaData(DateTime date)
@@ -119,7 +119,17 @@ namespace Sessao5
 
         private void linkSelecionarFoto_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            
+            ofpFile.Filter = "Bitmaps|*.bmp|PNG files|*.png|JPEG files|*.jpeg|JPG files|*.jpg";
+            if (ofpFile.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.Image = Image.FromFile(ofpFile.FileName);
+                MessageBox.Show("Foto selecionada com sucesso.");
+            }
+        }
+
+        private void btnCadastrar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
