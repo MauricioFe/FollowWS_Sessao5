@@ -150,22 +150,15 @@ namespace Sessao5
             }
             if (e.KeyChar == (char)Keys.Back)
             {
-                for (int i = 0; i < txtSenha.Text.Length; i++)
+
+                if (!txt.Text.Contains(e.KeyChar.ToString()))
                 {
-                    if (!txt.Text.Contains(e.KeyChar.ToString()))
-                    {
-                        iguais--;
-                        break;
-                    }
+                    iguais--;
                 }
             }
-            for (int i = 0; i < txtSenha.Text.Length; i++)
+            if (txt.Text.Contains(e.KeyChar.ToString()))
             {
-                if (txt.Text.Contains(e.KeyChar.ToString()))
-                {
-                    iguais++;
-                    break;
-                }
+                iguais++;
             }
         }
     }

@@ -49,7 +49,6 @@ namespace Sessao5
         {
             Application.Exit();
         }
-
         private void btnEntrar_Click(object sender, EventArgs e)
         {
             UsuariosTableAdapter usuarioAdapter = new UsuariosTableAdapter();
@@ -64,18 +63,30 @@ namespace Sessao5
                 usuario.Sexo = item["Sexo"].ToString();
                 usuario.perfil = item["Perfil"].ToString();
                 usuario.Nascimento = Convert.ToDateTime(item["Nascimento"]);
-                //usuario.Foto = conversaõ
+                usuario.Foto = (byte[])(item["foto"] == DBNull.Value ? null : item["foto"]);
                 usuario.TimeFavoritoId = Convert.ToInt32(item["timeFavoritoId"]);
             }
             int numRegistros = usuarioAdapter.FillLogin(sessao05DataSet1.Usuarios, txtEmail.Text, txtSenha.Text);
-            if (usuario.perfil == "1" && numRegistros > 0)
+            if (txtEmail.Text != "" && txtSenha.Text != "")
             {
-                MessageBox.Show("Login feito para usuario");
+                if (usuario.perfil == "1" && numRegistros > 0)
+                {
+                    MessageBox.Show("Login feito para usuario");
+                }
+                else if (usuario.perfil == "0" && numRegistros > 0)
+                {
+                    MessageBox.Show("Login feito para adm");
+                }
+                else
+                {
+                    MessageBox.Show("Usuário e/ou senha errados");
+                }
             }
-            else if (usuario.perfil == "0" && numRegistros > 0)
+            else
             {
-                MessageBox.Show("Login feito para adm");
+                MessageBox.Show("Usuário e/ou senha bazios");
             }
+
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

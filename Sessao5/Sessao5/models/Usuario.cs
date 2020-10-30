@@ -13,7 +13,7 @@ namespace Sessao5.models
         public string Email { get; set; }
         public string Senha { get; set; }
         public DateTime Nascimento { get; set; }
-        public Byte[] Foto { get; set; }
+        public byte[] Foto { get; set; }
         public string Sexo { get; set; }
         public int TimeFavoritoId { get; set; }
         public string perfil { get; set; }
