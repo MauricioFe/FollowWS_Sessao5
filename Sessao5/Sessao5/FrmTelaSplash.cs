@@ -28,14 +28,15 @@ namespace Sessao5
         string currentFile = $@"{AppDomain.CurrentDomain.BaseDirectory}Video.xml";
         private void FrmTelaSplash_Load(object sender, EventArgs e)
         {
-                      
+
             XElement x = XElement.Load(currentFile);
+            x.Add(new XElement("ID", 1));
             if (!File.Exists(currentFile))
             {
                 var document = new XDocument(new XElement("video"));
                 document.Save(currentFile);
-                x.Add(new XElement("ID", 1));
             }
+
             int tentativas = int.Parse(x.Element("ID").Value);
             switch (tentativas)
             {

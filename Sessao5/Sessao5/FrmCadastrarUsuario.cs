@@ -74,7 +74,10 @@ namespace Sessao5
             }
             else
             {
-                lblEmailcadastrado.Visible = false;
+                lblEmailcadastrado.Text = "Email não cadastrado";
+                lblEmailcadastrado.BackColor = Color.FromArgb(217, 17, 54);
+                lblEmailcadastrado.ForeColor = Color.White;
+                lblEmailcadastrado.Visible = true;
             }
             ConferindoValidacoes();
 
@@ -82,7 +85,7 @@ namespace Sessao5
 
         private void ConferindoValidacoes()
         {
-            if (ValidaEmail(txtEmail.Text) && (ValidaData(dtpDataNascimento.Value)) && ValidaNome(txtNome.Text))
+            if (ValidaEmail(txtEmail.Text) && (ValidaData(dtpDataNascimento.Value)) && ValidaNome(txtNome.Text) && ValidaEmailUnico(txtEmail.Text))
             {
                 btnCadastrar.Enabled = true;
             }
