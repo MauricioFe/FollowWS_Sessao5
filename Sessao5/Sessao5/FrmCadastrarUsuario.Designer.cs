@@ -288,8 +288,8 @@
             this.Controls.Add(this.linkSelecionarFoto);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.label1);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(895, 418);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.Font = new System.Drawing.Font("Helvetica-Normal", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FrmCadastrarUsuario";

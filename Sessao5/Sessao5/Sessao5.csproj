@@ -109,6 +109,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Sessao05DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="UserNotificacoes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserNotificacoes.Designer.cs">
+      <DependentUpon>UserNotificacoes.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FrmCadastrarUsuario.resx">
       <DependentUpon>FrmCadastrarUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +143,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserNotificacoes.resx">
+      <DependentUpon>UserNotificacoes.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
