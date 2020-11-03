@@ -84,7 +84,7 @@ namespace Sessao5
             }
             else
             {
-                MessageBox.Show("Usuário e/ou senha bazios");
+                MessageBox.Show("Usuário e/ou senha vazios");
             }
 
         }
