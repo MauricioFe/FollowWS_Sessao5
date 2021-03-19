@@ -22,7 +22,16 @@ namespace Sessao5
         {
             InitializeComponent();
         }
-
+        public bool VerificaEmailVálido(string email)
+        {
+            UsuariosTableAdapter usuarioAdapter = new UsuariosTableAdapter();
+            int emailValido = usuarioAdapter.FillEmailExiste(sessao05DataSet1.Usuarios, email);
+            if (email != "" && emailValido > 0)
+            {
+                return true;
+            }
+            return false;
+        }
         private void llbEsqueceuSenha_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             UsuariosTableAdapter usuarioAdapter = new UsuariosTableAdapter();
